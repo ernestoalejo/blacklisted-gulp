@@ -1,6 +1,6 @@
 {
   "name": "blacklisted-gulp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Search blacklisted gulp plugins in your project.",
   "main": "./bin/blacklisted-gulp",
   "bin": {
