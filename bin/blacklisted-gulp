@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    _ = require('lodash'),
+    request = require('superagent');
+
+
+function main() {
+  try {
+    var local = fs.readFileSync('package.json');
+  } catch (ex) {
+    console.log('Cannot read package.json file');
+    return;
+  }
+  local = JSON.parse(local.toString());
+
+  var devDependencies = local.devDependencies || {};
+  var dependencies = local.dependencies || {};
+
+  var installed = _.merge(devDependencies, dependencies);
+
+  request
+    .get('https://raw.githubusercontent.com/gulpjs/plugins/master/src/blackList.json')
+    .end(function(error, res) {
+      if (error || res.status !== 200) {
+        console.log('Cannot download gulp blacklist, status code: ' + res.status);
+        return;
+      }
+
+      var blacklist = JSON.parse(res.text);
+      _.each(installed, function(version, lib) {
+        if (blacklist[lib]) {
+          console.log(' * ' + lib + ' is blacklisted: ' + blacklist[lib]);
+        }
+      });
+    });
+}
+
+
+main();

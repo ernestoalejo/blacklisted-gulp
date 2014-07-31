@@ -1,0 +1,31 @@
+{
+  "name": "blacklisted-gulp",
+  "version": "0.0.1",
+  "description": "Search blacklisted gulp plugins in your project.",
+  "main": "./bin/blacklisted-gulp",
+  "bin": {
+    "devcycle": "./bin/blacklisted-gulp"
+  },
+  "directories": {
+    "bin": "./bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ernestoalejo/blacklisted-gulp.git"
+  },
+  "keywords": [
+    "gulp",
+    "blacklist",
+    "plugins"
+  ],
+  "author": "Ernesto Alejo",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/ernestoalejo/blacklisted-gulp/issues"
+  },
+  "homepage": "https://github.com/ernestoalejo/blacklisted-gulp",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "superagent": "^0.18.2"
+  }
+}
