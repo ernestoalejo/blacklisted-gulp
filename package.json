@@ -4,7 +4,7 @@
   "description": "Search blacklisted gulp plugins in your project.",
   "main": "./bin/blacklisted-gulp",
   "bin": {
-    "devcycle": "./bin/blacklisted-gulp"
+    "blacklisted-gulp": "./bin/blacklisted-gulp"
   },
   "directories": {
     "bin": "./bin"
